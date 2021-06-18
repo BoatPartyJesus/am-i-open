@@ -1,0 +1,6 @@
+{
+    "open": "Open from %s to %s %s",
+    "closed": "Closed %s",
+    "openUntil": "Open until %s today",
+    "date": "%sT%s:000Z"
+}

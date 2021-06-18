@@ -1,0 +1,5 @@
+- [ ] endpoint `/open` responds with is open or not.
+  - [ ] take optional parameter of date.
+  - [ ] responds with human readable.
+  - [ ] if closed responds with next opening time.
+- [ ] endpoint to get opening times

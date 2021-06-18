@@ -1,0 +1,21 @@
+{
+  "weekday": {
+    "open": true,
+    "openingTime": "08:30",
+    "closingTime": "19:30"
+  },
+  "weekend": {
+    "open": true,
+    "openingTime": "09:00",
+    "closingTime": "17:00"
+  },
+  "bankHoliday": {
+    "open": true,
+    "openingTime": "09:00",
+    "closingTime": "17:00"
+  },
+  "closed": [
+    "2021-12-25T00:00:00.000Z",
+    "2021-12-24T00:00:00.000Z"
+  ]
+}
