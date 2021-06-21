@@ -1,9 +1,14 @@
 import * as times from "./times.json"
 import {addDays,isBefore, format, isSameDay, isSaturday, isSunday, addHours, addMinutes, startOfDay, isWeekend, isMonday, isThursday, isTuesday, isWednesday, isFriday } from "date-fns";
 import getBankHolidays from "./getBankHolidays";
+import {I18n} from "i18n";
+import {join as pathJoin} from "path";
 
-const dayOfWeek = {MONDAY:"Monday", TUESDAY:"Tuesday", WEDNESDAY:"Wednesday", THURSDAY:"Thursday", FRIDAY:"Friday", SATURDAY:"Saturday", SUNDAY:"Sunday"}
-Object.freeze(dayOfWeek)
+const i18n = new I18n();
+i18n.configure({
+  locales: ["en"],
+  directory: pathJoin(__dirname, "/locales")
+});
 
 const dayType = {WEEKDAY:"weekday", SATURDAY:"saturday", SUNDAY:"sunday", BANKHOLIDAY:"bankHoliday", CLOSED:"closed"}
 Object.freeze(dayType)
@@ -69,7 +74,7 @@ async function isOpenOn(date: Date){
     let dateType = await getTypeOfDay(date);
 
     let response: dayTypeDetail = {
-        name: getNameOfDay(date),
+        name: format(date,"eeee"),
         type: dateType,
         open: false,
         openingTime: null,
@@ -127,31 +132,6 @@ function calcuateTimeOfDay(date: Date, dateObject: string) {
     const minutes = parseInt(split[1]);
   
     return addHours(addMinutes(startOfDay(date), minutes), hours)
-}
-
-function getNameOfDay(date: Date){
-    if(isMonday(date)){
-        return dayOfWeek.MONDAY
-    } else
-    if(isTuesday(date)){
-        return dayOfWeek.TUESDAY
-    } else
-    if(isWednesday(date)){
-        return dayOfWeek.WEDNESDAY
-    } else
-    if(isThursday(date)){
-        return dayOfWeek.THURSDAY
-    } else
-    if(isFriday(date)){
-        return dayOfWeek.FRIDAY
-    } else
-    if(isSaturday(date)){
-        return dayOfWeek.SATURDAY
-    } else
-    if(isSunday(date)){
-        return dayOfWeek.SUNDAY
-    }
-    // seriously... fuck this method
 }
 
 function getOpeningTimes(day: string){
