@@ -4,7 +4,12 @@
     "openingTime": "08:30",
     "closingTime": "19:30"
   },
-  "weekend": {
+  "saturday": {
+    "open": true,
+    "openingTime": "09:00",
+    "closingTime": "17:00"
+  },
+  "sunday": {
     "open": true,
     "openingTime": "09:00",
     "closingTime": "17:00"
