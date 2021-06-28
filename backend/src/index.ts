@@ -1,11 +1,11 @@
 import * as Koa from "koa";
 import * as Router from "koa-router"
-import { } from "date-fns";
 
 import isOpen from "./openingTimes"
 
 const app: Koa = new Koa();
 const router: Router = new Router();
+const cors = require('@koa/cors');
 
 
 router.get("/open", async (ctx: Koa.Context) => {
@@ -19,6 +19,7 @@ router.get("/open", async (ctx: Koa.Context) => {
   return
 });
 
+app.use(cors());
 app.use(router.routes());
 app.on('error', console.error);
-app.listen(3000);
+app.listen(3001);
