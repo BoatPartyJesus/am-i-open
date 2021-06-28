@@ -1,5 +1,5 @@
 import * as times from "./times.json"
-import {addDays,isBefore, format, isSameDay, isSaturday, isSunday, addHours, addMinutes, startOfDay, isWeekend, isMonday, isThursday, isTuesday, isWednesday, isFriday } from "date-fns";
+import {addDays,isBefore, format, isSameDay, isSaturday, isSunday, addHours, addMinutes, startOfDay, isWeekend} from "date-fns";
 import getBankHolidays from "./getBankHolidays";
 import {I18n} from "i18n";
 import {join as pathJoin} from "path";
@@ -88,13 +88,13 @@ async function isOpenOn(date: Date){
         case dayType.BANKHOLIDAY:
         case dayType.SATURDAY:
         case dayType.WEEKDAY:
-        response.open = true;
+            response.open = true;
 
-        let {open, close} = getOpeningTimes(dateType)
-        response.openingTime = calcuateTimeOfDay(date, open)
-        response.closingTime = calcuateTimeOfDay(date, close)
+            let {open, close} = getOpeningTimes(dateType)
+            response.openingTime = calcuateTimeOfDay(date, open)
+            response.closingTime = calcuateTimeOfDay(date, close)
         default:
-        break
+            break
     }
     
     return response
