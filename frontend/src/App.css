@@ -1,3 +1,8 @@
+html {
+  background-color: #282c34;
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -14,8 +19,17 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-top: 2em;
+}
+
+.mainbody{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,18 +42,65 @@
   color: #61dafb;
 }
 
-.picker {
+.picker{
+  margin-top: 2em;
+  border: none;
+}
+
+.picker-input {
   background-color: #282c34;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3d/Pencil_font_awesome-white.svg");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: 5%;
   color: white;
   font-weight: bold;
   font-size: xxx-large;
   width: auto;
   max-width: 70%;
   display: inline-block;
-  margin-left: auto;
   margin-right: auto;
   text-align: center;
   border: none;
-  border-bottom: 8px solid #01C2A2;
-  margin-top: 2em;
+  border: 8px solid #01C2A2;
+  border-radius: 999px;
+  padding-left: 25px;
+}
+
+.picker-input:focus {
+  outline: none;
+}
+
+.nowString{
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.timeline {
+  max-width: 30%;
+  position: absolute;
+  top: 1em;
+  left:1em;
+  z-index: 100;
+  text-align: left;
+}
+
+.datecard {
+  opacity: 1;
+  border-radius: 999px;
+  height: 60px;
+  width: 280px;
+  margin-bottom: 12px;
+  text-align: center;
+  line-height: 60px;
+  vertical-align: center;
+}
+
+.datecard-past{
+  opacity: 0.4;
+  background-color: #7F3DA8;
+}
+
+.datecard-future{
+  background-color: #01C2A2;
 }

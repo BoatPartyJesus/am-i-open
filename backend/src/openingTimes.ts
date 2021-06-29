@@ -26,6 +26,10 @@ type DateResponse = {
     message: string
   }
 
+async function getClosedDates(){
+    return times.closed
+}
+
 async function isOpen(date:Date) {
 
     let response: DateResponse = {
@@ -157,4 +161,4 @@ function getOpeningTimes(day: string){
     return {open: open, close: close}
 }
 
-export default isOpen;
+export {isOpen, getClosedDates};

@@ -1,7 +1,7 @@
 import * as Koa from "koa";
 import * as Router from "koa-router"
 
-import isOpen from "./openingTimes"
+import {isOpen, getClosedDates} from "./openingTimes"
 
 const app: Koa = new Koa();
 const router: Router = new Router();
@@ -15,6 +15,12 @@ router.get("/open", async (ctx: Koa.Context) => {
 
   let response = await isOpen(date);
 
+  ctx.body = JSON.stringify(response);
+  return
+});
+
+router.get("/closed", async (ctx: Koa.Context) => {
+  let response = await getClosedDates();
   ctx.body = JSON.stringify(response);
   return
 });
